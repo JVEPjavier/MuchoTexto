@@ -9,5 +9,6 @@
 </head>
 <body>
     <h1>Bienvenido a nuestra red social</h1>
+    <button class="btn btn-primary">boton</button>
 </body>
 </html>
