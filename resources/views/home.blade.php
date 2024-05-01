@@ -25,8 +25,8 @@
               
               
             </ul>
-            <button type="button" class="btn btn-success">Iniciar Sesion</button>
-            <button type="button" class="btn btn-success ms-2">Registrarse</button>
+            <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('login') }}'">Iniciar Sesión</button>
+            <button type="button" class="btn btn-success ms-2" onclick="window.location.href='{{ route('register') }}'">Registrarse</button>
           </div>
         </div>
       </nav>

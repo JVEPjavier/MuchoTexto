@@ -2,20 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Models\Usuario;
 
 Route::get('/', HomeController::class);
 
-Route::get('prueba', function() {
-    $usuario = new Usuario;
+Route::get('/login' , [LoginController::class, 'Login'])->name('login');
 
-    $usuario->NombreUsuario = "segundo usuario";
-    $usuario->CorreoElectronico = "equisdee@equisde";
-    $usuario->Contraseña = "equisde123";
-    $usuario->FechaRegistro = date('Y-m-d H:i:s');
-    $usuario->RolUsuario = 2;
-
-    $usuario->save();
-
-    return $usuario;
-});
+Route::get('/register', [LoginController::class, 'Register'])->name('register');
