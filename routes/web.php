@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Models\Usuario;
 
-Route::get('/', HomeController::class);
 
-Route::get('/login' , [LoginController::class, 'Login'])->name('login');
+Route::view('/', "home");
 
-Route::get('/register', [LoginController::class, 'Register'])->name('register');
+Route::view('/login' , "login")->name('login');
+
+Route::view('/register', "register")->name('register');
+
+Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
+
+Route::post('/iniciar-sesion', [LoginController::class, 'login'])->name('iniciar-sesion');

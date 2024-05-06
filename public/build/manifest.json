@@ -1,7 +1,7 @@
 {
-  "resources/css/home.css": {
-    "file": "assets/home-DTexKck-.css",
-    "src": "resources/css/home.css",
+  "resources/css/app.css": {
+    "file": "assets/app-DTexKck-.css",
+    "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
