@@ -8,24 +8,48 @@
     <link rel="icon" href="ruta/al/icono.ico" type="image/x-icon">
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body>
-  <div class="container">
-    <form>
-      <div class="form-group">
-          <label for="inputUser">Nombre de usuario</label>
-          <input type="text" class="form-control" id="inputUser" aria-describedby="userHelp" placeholder="Ingrese su nombre de usuario">
-      </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Contraseña</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-      </div>
-      <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Recuérdame</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
-  </form>
-  </div>
+<body style="background-color:  rgb(208, 212, 216)">
+    <main class="container align-center p-5">
+        <section class="vh-100 gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card text-white" style="border-radius: 1rem; background-color: #85ca36;">
+                            <div class="card-body p-5 text-center">
     
+                                <div class="md-5 mb-0 mt-md-4 pb-5">
+    
+                                    <h2 class="fw-bold mb-4 text-uppercase">Iniciar sesión</h2>
+    
+                                    <form method="post" action="{{ route('iniciar-sesion') }}">
+                                        @csrf
+    
+                                        <div data-mdb-input-init class="form-outline form-white mb-4">
+                                            <input type="text" id="userinput" class="form-control form-control-lg mb-2" name="user" required>
+                                            <label class="form-label" for="userinput">Usuario</label>
+                                        </div>
+    
+                                        <div data-mdb-input-init class="form-outline form-white mb-4">
+                                            <input type="password" id="typePasswordX" class="form-control form-control-lg mb-2" name="Contraseña" required>
+                                            <label class="form-label" for="typePasswordX">Contraseña</label>
+                                        </div>
+    
+                                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Ingresar</button>
+    
+                                    </form>
+    
+                                </div>
+    
+                                <div>
+                                    <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Registrarse</a></p>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

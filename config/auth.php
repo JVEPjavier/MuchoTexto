@@ -35,8 +35,8 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
+    'guards' => [       
+        'web' => [ 
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -59,10 +59,10 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
+    'providers' => [        
+        'users' => [ 
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => env('AUTH_MODEL', App\Models\Usuario::class), // Ajusta el nombre del modelo si es diferente
         ],
 
         // 'users' => [
