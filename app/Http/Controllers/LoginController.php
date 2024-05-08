@@ -32,7 +32,6 @@ class LoginController extends Controller
 
         if ($usuario) {
             if (Hash::check($request->Contraseña, $usuario->Contraseña)) {
-                Auth::login($usuario);
                 $request->session()->regenerate();
                 return redirect()->intended(route('main'));
             } else {
@@ -41,6 +40,11 @@ class LoginController extends Controller
         } else {
             return redirect('login');
         }
+    }
+
+    public function username()
+    {
+        return 'nombre_de_usuario_o_correo_personalizado_aqui';
     }
 
 }
