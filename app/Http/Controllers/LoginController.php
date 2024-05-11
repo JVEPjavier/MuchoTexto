@@ -29,16 +29,18 @@ class LoginController extends Controller
 
     public function Login(Request $request) {
         $usuario = Usuario::where('NombreUsuario', $request->user)->first();
-
+    
         if ($usuario) {
             if (Hash::check($request->Contraseña, $usuario->Contraseña)) {
+                $request->session()->put('usuario', $usuario);
                 $request->session()->regenerate();
+    
                 return redirect()->intended(route('main'));
             } else {
-                return redirect('login');
+                return redirect('login')->with('error', 'Credenciales incorrectas');
             }
         } else {
-            return redirect('login');
+            return redirect('login')->with('error', 'Usuario no encontrado');
         }
     }
 

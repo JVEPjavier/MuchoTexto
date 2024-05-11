@@ -19,5 +19,10 @@ class Usuario extends Model
         'NombreUsuario', 'CorreoElectronico', 'Contraseña',
     ];
 
+    public function getNombre()
+    {
+        return $this->NombreUsuario; 
+    }
+
 
 }
