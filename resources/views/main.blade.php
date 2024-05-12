@@ -90,8 +90,8 @@
                 <textarea class="form-control" id="contenido" name="contenido" rows="4"></textarea>
             </div>
             <div class="mb-2">
-                <label for="categoria" class="form-label">Categoría</label>
-                <select name="categoria" id="categoria" class="form-select">
+                <label for="categoria-select" class="form-label">Categoría</label>
+                <select name="categoria-select" id="categoria-select" class="form-select">
                     <option value="">Selecciona una categoría</option>
                     @foreach($categorias as $categoria)
                         <option value="{{ $categoria->NombreCategoria }}">{{ $categoria->NombreCategoria }}</option>
@@ -103,7 +103,7 @@
         
         @foreach($publicaciones as $publicacion)
             <div class="card mb-3">
-                <div class="card-header">{{ $publicacion->categoria ? $publicacion->categoria->NombreCategoria : 'Sin categoría' }}</div>
+                <div class="card-header">{{ $publicacion->categoria->NombreCategoria }}</div>
                 <div class="card-body">
                     <h1 class="card-title">{{ $publicacion->usuario->NombreUsuario }}</h1>
                     <p class="card-text">{{ $publicacion->Contenido }}</p>

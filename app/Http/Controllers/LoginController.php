@@ -6,17 +6,17 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
-    public function Register(Request $request) {
 
-        //Validacion
+    public function Register(Request $request) {
 
         $user = new Usuario();
 
         $user->NombreUsuario = $request->user;
-        $user->Contraseña = $request->pass;
+        $user->Contraseña = Hash::make($request->pass);
         $user->CorreoElectronico = $request->email;
         $user->FechaRegistro = date("Y-m-d H:i:s");
         $user->RolUsuario = 2;
@@ -27,26 +27,21 @@ class LoginController extends Controller
     }
 
 
+
     public function Login(Request $request) {
         $usuario = Usuario::where('NombreUsuario', $request->user)->first();
     
         if ($usuario) {
             if (Hash::check($request->Contraseña, $usuario->Contraseña)) {
-                $request->session()->put('usuario', $usuario);
-                $request->session()->regenerate();
-    
-                return redirect()->intended(route('main'));
+              session()->put('logged_user', $usuario);
+              return redirect()->route('main');
             } else {
-                return redirect('login')->with('error', 'Credenciales incorrectas');
+              return redirect('login')->with('error', 'Credenciales incorrectas');
             }
-        } else {
+          } else {
             return redirect('login')->with('error', 'Usuario no encontrado');
-        }
+          }
     }
 
-    public function username()
-    {
-        return 'nombre_de_usuario_o_correo_personalizado_aqui';
-    }
-
+    
 }
