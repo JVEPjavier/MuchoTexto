@@ -61,6 +61,16 @@
             background-color: #0056b3;
             border-color: #0056b3;
         }
+
+        .user-options {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        .user-options a {
+            color: #007bff;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +121,13 @@
                 </div>
             </div>
         @endforeach
+    </div>
+
+    <div class="user-options">
+        @if(isset($usuario))
+            <a href="{{ route('logout') }}">Cerrar sesión</a>
+            <a href="{{ route('viewPerfil') }}">Ver perfil</a>
+        @endif
     </div>
 </body>
 </html>

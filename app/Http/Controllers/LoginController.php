@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\FuncCall;
 
 class LoginController extends Controller
 {
@@ -43,5 +44,8 @@ class LoginController extends Controller
           }
     }
 
-    
+    public function logout() {
+      session()->forget('logged_user');
+      return redirect('login');
+    }
 }

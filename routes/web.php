@@ -18,6 +18,9 @@ Route::get('/search', [MainController::class, 'search'])->name('search');
 
 Route::get('/search', [MainController::class, 'search'])->name('search');
 
+Route::get('/cierre-sesion', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/perfil', [MainController::class, 'viewPerfil'])->name('viewPerfil');
 
 Route::get('/post/{id}', [MainController::class, 'detalles'])->name('post-detail');
 

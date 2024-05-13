@@ -16,8 +16,11 @@ class MainController extends Controller
         }
 
         $usuario = session()->get('logged_user');
-        $publicaciones = Publicacion::all();
         $categorias = Categoria::all();
+
+        $publicaciones = Publicacion::all();
+
+
         return view('main', ['usuario' => $usuario] ,compact('publicaciones','categorias'));
         
     }
@@ -30,7 +33,8 @@ class MainController extends Controller
         $categoriaNombre = $request->input('categoria');
         $categorias = Categoria::all();
 
-        $publicaciones = Publicacion::all();
+        $publicaciones = Publicacion::where('IdEstado', 2)->get();
+
 
         if ($categoriaNombre) {
             $categoria = Categoria::where('NombreCategoria', $categoriaNombre)->first();
@@ -75,6 +79,12 @@ class MainController extends Controller
         $categorias = Categoria::all();
         return view('main', ['usuario' => $usuario] ,compact('publicaciones','categorias'));
 
+    }
+
+    public function viewPerfil() {
+        $usuario = session()->get('logged_user');
+
+        return view('perfil-detail', ['usuario'=>$usuario]);
     }
 
 

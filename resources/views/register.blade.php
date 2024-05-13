@@ -45,7 +45,7 @@
                                 </div>
     
                                 <div>
-                                    <p class="mb-0">¿Ya tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Ingresar</a>
+                                    <p class="mb-0">¿Ya tienes una cuenta? <a href="{{ route('login') }}" class="text-white-50 fw-bold">Ingresar</a>
                                     </p>
                                 </div>
     

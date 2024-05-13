@@ -41,7 +41,7 @@
                                 </div>
     
                                 <div>
-                                    <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Registrarse</a></p>
+                                    <p class="mb-0">¿No tienes una cuenta? <a href="{{ route('register') }}" class="text-white-50 fw-bold">Registrarse</a></p>
                                 </div>
     
                             </div>

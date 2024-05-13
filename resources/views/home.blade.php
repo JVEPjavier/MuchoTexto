@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pagina inicio</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+
+    
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #C1E893">
@@ -22,22 +25,17 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Acerca de nosotros</a>
             </li>
-            
-            
           </ul>
           <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('login') }}'">Iniciar Sesión</button>
           <button type="button" class="btn btn-success ms-2" onclick="window.location.href='{{ route('register') }}'">Registrarse</button>
         </div>
       </div>
     </nav>
-      <div class="mt-3 container">
-        <h2 style="text-align: center;">
-            Bienvenido
-            
-        </h2>
-        <p>
-            mucho texto es una web que permite a sus usuarios escribir post's tratando diversos temas de tu interes, los cuales estan separados por diferentes tematicas. en estos post's puedes comentar y compartir tu opinion. para mas informacion, lee nuestros terminos y condiciones. ¡disfruta de tu estadia!                                                
-        </p>
-      </div>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;"> <div class="text-center">
+      <h1 style="font-size: 3em;">Bienvenido</h1> <p>
+        mucho texto es una web que permite a sus usuarios escribir post's tratando diversos temas de tu interes, los cuales estan separados por diferentes tematicas. en estos post's puedes comentar y compartir tu opinion. para mas informacion, lee nuestros terminos y condiciones. ¡disfruta de tu estadia!
+      </p>
+    </div>
+  </div>
 </body>
 </html>
