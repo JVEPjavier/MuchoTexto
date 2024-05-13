@@ -44,10 +44,16 @@
         .comment p {
             margin-bottom: 0;
         }
+
+        .btn-back {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+    
     <div class="container">
+        <a href="{{ route('main') }}" class="btn btn-primary  mb-2">Volver a la vista principal</a>
         <div class="post">
             <h1>{{ $publicacion->categoria->NombreCategoria }}</h1>
             <p class="author">Publicado por: {{ $publicacion->usuario->NombreUsuario }}</p>
@@ -57,16 +63,14 @@
         <div class="comments">
             <h2>Comentarios</h2>
             
-            <form>
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
-                </div>
+            <form method="POST" action="{{ route('addComentario') }}">
+                @csrf
                 <div class="form-group">
                     <label for="comentario">Comentario:</label>
-                    <textarea class="form-control" id="comentario" rows="3" placeholder="Tu comentario"></textarea>
+                    <textarea class="form-control" id="comentario" rows="3" placeholder="Tu comentario" name="comentario"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary mt-10">Enviar Comentario</button>
+                <input type="hidden" name="id_publicacion" value="{{ $publicacion->Id }}">
+                <button type="submit" class="btn btn-primary mt-2">Enviar Comentario</button>
             </form>
 
             @foreach($comentarios as $comentario)
@@ -78,5 +82,6 @@
             
         </div>
     </div>
+
 </body>
 </html>

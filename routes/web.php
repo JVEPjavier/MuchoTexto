@@ -24,6 +24,8 @@ Route::get('/perfil', [MainController::class, 'viewPerfil'])->name('viewPerfil')
 
 Route::get('/post/{id}', [MainController::class, 'detalles'])->name('post-detail');
 
+Route::post('/new-comment',[MainController::class, 'addComentario'])->name('addComentario');
+
 Route::post('/validar-registro', [LoginController::class, 'register'])->name('validar-registro');
 
 Route::post('/iniciar-sesion', [LoginController::class, 'login'])->name('iniciar-sesion');

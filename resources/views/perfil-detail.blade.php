@@ -38,6 +38,8 @@
 </head>
 <body>
     <div class="container">
+        <a href="{{ route('main') }}" class="btn btn-primary  mb-2">Volver a la vista principal</a>
+
         <div class="profile">
             <h1>Perfil de {{ $usuario->NombreUsuario }}</h1>
             <div class="profile-info">

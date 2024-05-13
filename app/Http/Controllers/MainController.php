@@ -87,5 +87,27 @@ class MainController extends Controller
         return view('perfil-detail', ['usuario'=>$usuario]);
     }
 
+    public function addComentario(Request $request) {
+        $usuario = session()->get('logged_user');
+
+        $comentario = new Comentario();
+
+        $comentario->Contenido = $request->comentario;
+
+        $comentario->FechaComentario = date("Y-m-d H:i:s");
+
+        $comentario->IdPublicacion = $request->id_publicacion;
+
+        $comentario->IdUsuario = $usuario->Id;
+
+        $comentario->save();
+
+        $publicacion = Publicacion::findOrFail($request->id_publicacion);
+
+        $comentarios = Comentario::where('idpublicacion', $request->id_publicacion)->get();
+
+        return view('post-detail', compact('publicacion','comentarios'));
+    }
+
 
 }
