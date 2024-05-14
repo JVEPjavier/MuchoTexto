@@ -16,13 +16,15 @@ Route::get('/main', [MainController::class, 'index'])->name('main');
 
 Route::get('/search', [MainController::class, 'search'])->name('search');
 
-Route::get('/search', [MainController::class, 'search'])->name('search');
-
 Route::get('/cierre-sesion', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/perfil', [MainController::class, 'viewPerfil'])->name('viewPerfil');
 
 Route::get('/post/{id}', [MainController::class, 'detalles'])->name('post-detail');
+
+Route::get('/moderator', [MainController::class, 'Moderator'])->name('Moderator');
+
+Route::post('/accept-post/{id}', [MainController::class, 'AceptarPost'])->name('aceptar-post');
 
 Route::post('/new-comment',[MainController::class, 'addComentario'])->name('addComentario');
 

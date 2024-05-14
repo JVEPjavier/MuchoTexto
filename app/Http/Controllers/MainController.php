@@ -18,7 +18,7 @@ class MainController extends Controller
         $usuario = session()->get('logged_user');
         $categorias = Categoria::all();
 
-        $publicaciones = Publicacion::all();
+        $publicaciones = Publicacion::where('IdEstado', 2)->get();
 
 
         return view('main', ['usuario' => $usuario] ,compact('publicaciones','categorias'));
@@ -40,7 +40,9 @@ class MainController extends Controller
             $categoria = Categoria::where('NombreCategoria', $categoriaNombre)->first();
 
             if ($categoria) {
-                $publicaciones = Publicacion::where('IdCategoria', $categoria->Id)->get();
+                $publicaciones = Publicacion::where('IdCategoria', $categoria->Id)
+                                        ->where('IdEstado', 2)
+                                        ->get();
             }
         }
 
@@ -109,5 +111,22 @@ class MainController extends Controller
         return view('post-detail', compact('publicacion','comentarios'));
     }
 
+    public function Moderator() {
+        $categorias = Categoria::all();
 
+        $publicaciones = Publicacion::where('IdEstado', 1)->get();
+
+        return view('Moderator',compact('publicaciones','categorias'));
+    }
+
+    public function AceptarPost(Request $request,$id) {
+        $publicacion = Publicacion::findOrFail($request->postId or $id);
+        $publicacion->IdEstado = 2;
+        $publicacion->save();
+    
+        $categorias = Categoria::all();
+        $publicaciones = Publicacion::where('IdEstado', 1)->get();
+    
+        return view('moderator', compact('publicaciones','categorias'));
+    }
 }

@@ -22,6 +22,4 @@ class Publicacion extends Model
     {
         return $this->belongsTo(Categoria::class, 'IdCategoria');
     }
-
-    
 }

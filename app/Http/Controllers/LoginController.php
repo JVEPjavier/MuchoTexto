@@ -14,6 +14,16 @@ class LoginController extends Controller
 
     public function Register(Request $request) {
 
+
+      $request->validate([
+        'user' => 'required|unique:usuarios,NombreUsuario',
+        'pass' => 'required',
+        'email' => 'required|email|unique:usuarios,CorreoElectronico',
+      ], [
+        'user.unique' => 'El usuario ya está registrado.',
+        'email.unique' => 'El correo electrónico ya está registrado.'
+      ]);
+
         $user = new Usuario();
 
         $user->NombreUsuario = $request->user;

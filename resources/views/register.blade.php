@@ -23,22 +23,31 @@
                                     <form method="POST" action="{{ route('validar-registro') }}">
                                         @csrf
     
-                                        <div data-mdb-input-init class="form-outline form-white mb-4">
-                                            <input type="text" id="userinput" class="form-control form-control-lg mb-2" name="user" required autocomplete="disabled"/>
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="text" id="userinput" class="form-control form-control-lg mb-2 @error('user') is-invalid @enderror" name="user" required autocomplete="off"/>
                                             <label class="form-label" for="userinput">Usuario</label>
+                                            @error('user')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
     
-                                        <div data-mdb-input-init class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX" class="form-control form-control-lg mb-2" name="pass" required autocomplete="disabled"/>
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="password" id="typePasswordX" class="form-control form-control-lg mb-2 @error('pass') is-invalid @enderror" name="pass" required autocomplete="off"/>
                                             <label class="form-label" for="typePasswordX">Contraseña</label>
+                                            @error('pass')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
     
-                                        <div data-mdb-input-init class="form-outline form-white mb-4">
-                                            <input type="email" id="inputemail" class="form-control form-control-lg mb-2" name="email" required autocomplete="disabled"/>
+                                        <div class="form-outline form-white mb-4">
+                                            <input type="email" id="inputemail" class="form-control form-control-lg mb-2 @error('email') is-invalid @enderror" name="email" required autocomplete="off"/>
                                             <label class="form-label" for="inputemail">Email</label>
+                                            @error('email')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
     
-                                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Registrarse</button>
+                                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Registrarse</button>
     
                                     </form>
     

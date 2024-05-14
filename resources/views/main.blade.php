@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- Include CSS and JavaScript using Vite -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         body {
@@ -77,10 +76,14 @@
     <div class="container">
 
         @if(isset($usuario))
-        <p>Bienvenido, {{ $usuario->NombreUsuario }}</p>
+            <p>Bienvenido, {{ $usuario->NombreUsuario }}</p>
+            @if($usuario->RolUsuario == 1)
+                <a href="{{ route('Moderator') }}" class="btn btn-primary mb-3">Admin</a>
+            @endif
         @else
             <p>No has iniciado sesión</p>
         @endif
+
         <form action="{{ route('search') }}" method="GET" class="mb-3">
             <div class="input-group">
                 <select name="categoria" class="form-select">
